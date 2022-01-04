@@ -1,6 +1,6 @@
 # Roborace
 
-![display](HDK/Schematic Drawing.drawio.pdf)
+![display](Images/Schematic Drawing.png)
 
 |Dir Name|Explain|
 | :--:|:--:|
