@@ -1,4 +1,4 @@
-# Roborace
+# Roborace | Folkrace
 
 ![display](Images/SchematicDrawing_1.jpg)
 
