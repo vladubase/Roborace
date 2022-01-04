@@ -1,6 +1,6 @@
 # Roborace
 
-![display](Images/Schematic Drawing.png)
+![display](Images/SchematicDrawing_1.jpg)
 
 |Dir Name|Explain|
 | :--:|:--:|
