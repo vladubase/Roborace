@@ -1,6 +1,8 @@
 # Roborace | Folkrace
 
-![display](Images/SchematicDrawing_1.jpg)
+![display]("Images/Schematic Drawing Power Supply.jpg")
+
+![display]("Images/Schematic Drawing Microcontroller.jpg")
 
 |Dir Name|Explain|
 | :--:|:--:|
