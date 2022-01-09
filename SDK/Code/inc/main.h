@@ -54,6 +54,24 @@ void delay_ms (uint32_t time) {
 	while (SysTick_CNT);
 }
 
+////////////////////////////////////////////
+struct GYRO {
+	
+};
+
+struct motor {
+	uint16_t velocity;
+	uint16_t velocity_target;
+};
+
+///////////////////////////////////////////
+
+
+
+
+
+
+
 
 /********************************** Interrupts ********************************/
 
