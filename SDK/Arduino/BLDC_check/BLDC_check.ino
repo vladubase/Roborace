@@ -1,19 +1,32 @@
+/*******************************************************************************
+ *  @name     BLDC_check
+ *  @file     BLDC_check.ino
+ *
+ *  @author   Uladzislau 'vladubase' Dubatouka
+ *            <vladubase@gmail.com>.
+ *  @version  V1.0
+ *  @date     24-January-2022
+ ******************************************************************************/
+            
 #include <Servo.h>
 
-Servo motor;
+#define ESC_PIN         ((uint8_t)  9)
+#define ESC_MIN_SIG     ((uint16_t) 1000)
+#define ESC_MAX_SIG     ((uint16_t) 2000)
+                        
 
-void setup() {
-    motor.attach (9);
+/************************************ Main ************************************/
+
+int main (void) {
+    // DEFINITION OF VARIABLES
     
-    motor.writeMicroseconds (800);
-    delay (2000);
-    motor.writeMicroseconds (2200);
-    delay (2000);
-}
+     
+    // ESC INITIALIZATION.
+    Servo ESC;
+    ESC.attach (ESC_PIN, ESC_MIN_SIG, ESC_MAX_SIG);
 
-void loop () {
-    for (int i = 800; i < 2200; i++) {
-        motor.writeMicroseconds (i);
-        delay (10);
+    // MAIN CYCLE
+    while (true) {
+        ESC.writeMicroseconds (1100);
     }
 }
