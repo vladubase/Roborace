@@ -6,7 +6,7 @@
 ![display](Images/SchematicDrawing_PowerSupply.jpg)
 
 ### MCU schematic
-![display](Images/SchematicDrawing_Microcontroller.jpg)
+![display](Images/SchematicDrawing_MCU.jpg)
 
 |Dir Name|Explain|
 | :--:|:--:|
