@@ -1,6 +1,6 @@
 # Roborace | Folkrace
 
-![display](Images/Renders/Robot-2022-02-17.JPG)
+![display](Images/Renders/Robot-2022-03-26.JPG)
 
 ![display](Images/SchematicDrawing_PowerSupply.jpg)
 
