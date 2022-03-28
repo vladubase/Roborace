@@ -1,4 +1,5 @@
 # Change Log
 
-[1.0]
-Initial commit. Release
+[0.1-alpha]
+  - Prepare all 3D-printed files and ready to assemly.
+  - Prepare firmware for module testing.
