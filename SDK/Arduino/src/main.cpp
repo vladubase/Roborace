@@ -5,20 +5,11 @@
  *  @author		Uladzislau 'vladubase' Dubatouka
  *				<vladubase@gmail.com>.
  * 				https://github.com/vladubase/Roborace
- *  @version	V0.1
- *  @date		2-March-2022
+ *  @version	v0.1
+ *  @date		28-March-2022
  ******************************************************************************/
 
 #include "main.h"
-
-
-// GLOBAL VARIABLES
-uint32_t	i = 0, j = 0;
-uint8_t		STATUS_LASER = 0x00;
-uint8_t		STATUS_BLUETOOTH = 0x00;
-uint8_t		STATUS_MPU6050 = 0x00;
-uint16_t	laser_data[6] = {0};
-uint8_t		bluetooth_data = 0;
 
 
 /************************************ Main ************************************/
@@ -118,9 +109,17 @@ void setup () {
 }
 
 void loop () {
-	// MAIN CYCLE
 	#if RELEASE
-   		long int t1 = millis();
+	// Do once at start.
+	delay (5000);								// Delay as required by the rules.
+	servo.writeMicroseconds (SERVO_0_US);		// Drive straight - 0 degree.
+	ESC.writeMicroseconds (ESC_MAX_SIG_US);		// Drive at max speed.
+	
+	// MY MAIN CYCLE
+	while (true) {
+		#if SEND_DEBUG_INFO
+			long int t1 = millis ();
+		#endif /* SEND_DEBUG_INFO */
 		
 		// READ LASERS
 			I2CMuxChSelect (0);	laser_data[0] = laser_left.read ();
@@ -129,58 +128,75 @@ void loop () {
 			I2CMuxChSelect (3);	laser_data[3] = laser_right45.read ();
 			I2CMuxChSelect (4);	laser_data[4] = laser_right.read ();
 			I2CMuxChSelect (5);	laser_data[5] = laser_back.read ();
-			
-			Serial.print ("Laser range:\t");
-			for (i = 0; i < 6; i++) {
-				Serial.print (i);
-				Serial.print (": ");
-				Serial.print (laser_data[i]);
-				Serial.print ("\t");
-			}
-			Serial.print ("\n");
+
+			#if SEND_DEBUG_INFO
+				Serial.print ("Laser range:\t");
+				for (i = 0; i < 6; i++) {
+					if (laser_data[i] == 0) { STATUS_LASER &= (1 << i); }
+					Serial.print (i);
+					Serial.print (": ");
+					Serial.print (laser_data[i]);
+					Serial.print ("\t");
+				}
+				Serial.print ("\n");
+			#endif /* SEND_DEBUG_INFO */
 
 		// READ MPU6050
 			sensors_event_t a, g, temp;
 			I2CMuxChSelect (7);	mpu.getEvent (&a, &g, &temp);
 			
-			Serial.print("Acceleration X: ");
-			Serial.print(a.acceleration.x);
-			Serial.print(", Y: ");
-			Serial.print(a.acceleration.y);
-			Serial.print(", Z: ");
-			Serial.print(a.acceleration.z);
-			Serial.println(" m/s^2");
+			#if SEND_DEBUG_INFO
+				Serial.print("Acceleration X: ");
+				Serial.print(a.acceleration.x);
+				Serial.print(", Y: ");
+				Serial.print(a.acceleration.y);
+				Serial.print(", Z: ");
+				Serial.print(a.acceleration.z);
+				Serial.println(" m/s^2");
 
-			Serial.print("Rotation X: ");
-			Serial.print(g.gyro.x);
-			Serial.print(", Y: ");
-			Serial.print(g.gyro.y);
-			Serial.print(", Z: ");
-			Serial.print(g.gyro.z);
-			Serial.println(" rad/s");
+				Serial.print("Rotation X: ");
+				Serial.print(g.gyro.x);
+				Serial.print(", Y: ");
+				Serial.print(g.gyro.y);
+				Serial.print(", Z: ");
+				Serial.print(g.gyro.z);
+				Serial.println(" rad/s");
 
-			Serial.print("Temperature: ");
-			Serial.print(temp.temperature);
-			Serial.println(" degC");
+				Serial.print("Temperature: ");
+				Serial.print(temp.temperature);
+				Serial.println(" degC");
+			#endif /* SEND_DEBUG_INFO */
 		
-		long int t2 = millis();
-		Serial.print ("Freq: "); Serial.print(1000/(t2-t1)); Serial.println(" Hz");
-		Serial.print ("\n");
+		// DRIVING
+			// https://github.com/sklipus/roborace
+			if (laser_data[LASER_0_ID] >= 1000) {
+				ESC.writeMicroseconds (ESC_MAX_SIG_US);
+			} else {
+				ESC.writeMicroseconds (map (laser_data[LASER_0_ID], 0, 4000, ESC_MIN_SIG_US, ESC_MAX_SIG_US));
+			}
+
+
+
+		// MAIN DELAY
 		delay (500);
+
+		#if SEND_DEBUG_INFO
+			long int t2 = millis();
+			Serial.print ("Freq: "); Serial.print(1000/(t2-t1)); Serial.println(" Hz");
+			Serial.print ("\n");
+		#endif /* SEND_DEBUG_INFO */
+	}
 
 	#endif /* RELEASE */
 
 
-
-	
 	#if DEBUG_MOTOR
 		for (i = 1100; i < 1500; i++) {
 			ESC.writeMicroseconds (i);
 			delay (50);
-			digitalWrite (LED_BUILTIN, HIGH);
+			Serial.println (i);
 		}
 		ESC.writeMicroseconds (ESC_MIN_SIG_US);
-		digitalWrite(LED_BUILTIN, LOW);
 		
 		delay (5000);
 	#endif /* DEBUG_MOTOR */
@@ -193,7 +209,7 @@ void loop () {
 			delay (1000);
 		}
 	#endif
-	
+		
 	#if DEBUG_LASERS
 		I2CMuxChSelect (0);
 		laser_left.read ();		laser_data[0] = laser_left.ranging_data.range_mm;
@@ -224,6 +240,6 @@ void loop () {
 		Serial.print(g.gyro.z);
 		Serial.println("");
 
-  		delay (1000);
-	#endif
+		delay (1000);
+	#endif /* DEBUG_MPU6050 */
 }
