@@ -1,0 +1,29 @@
+Download archive:	http://0x.ca/tgy/downloads/
+Direct link:		http://0x.ca/tgy/downloads/tgy_2015-09-12_103edb5.zip
+
+
+To make changes open Terminal in folder path and type "make" - compile all files.
+To flash MCU:
+	"Device"		ATmega8.
+	"Fuses"		Int. 8 MHz
+	"Programmer"	USBasp
+	
+	FLASH: open application on Windows 'SinaProg' and choose HEX file (tgy.hex). Click on button "Program".
+	EEPROM: Rename file 'tgy.eep.hex' to 'tgy.eep'. Open 'SinaProg' and choose EEP file (tgy.eep). Click on button "Program".
+
+Well Done!
+
+###############################################################
+
+If any problems occur, flash original files (HEX and EEP).
+
+
+###############################################################
+
+changelog:
+	tgy.asm
+	[0]		.equ  MOTOR_BRAKE  = 1  ; Enable brake during neutral/idle ("motor drag" brake)
+	[0]		.equ  LOW_BRAKE  = 1  ; Enable brake on very short RC pulse ("thumb" brake like on Airtronics XL2P)
+	
+	tgy.inc
+	[16000000]	.set  F_CPU    = 8000000
