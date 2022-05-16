@@ -1,0 +1,18 @@
+
+
+
+*. If needed change peripheral PIN defines.
+	ESC_PIN
+	SERVO_PIN
+	ADC_VOLTAGE_MOTOR_PIN
+	SENSOR_IR_PIN
+	LED_PROCESS_PIN
+	BEEP_PIN
+
+*. If needed change defines of PID coefficients.
+
+*. Measure voltage on 5V line.
+	Change the parameter in define	"VOLTAGE_5V".
+*. Measure Resistanse on ADC input voltage divider from Battery.
+	Change the parameter in defines "ADC_volt_div_motor_R1",
+									"ADC_volt_div_motor_R2".

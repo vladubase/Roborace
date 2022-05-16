@@ -1,71 +1,0 @@
-Dependencies for Project 'ROBORACE_MCU', Target 'ROBORACE_MCU': (DO NOT MODIFY !)
-CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\Startup\startup_stm32f411xe.s)(0x582097A0)(--cpu Cortex-M4.fp.sp --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Users\vladu\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I"C:\Program Files\Keil\ARM\CMSIS\Include"--pd "__UVISION_VERSION SETA 532" --pd "STM32F411xE SETA 1"--list .\listings\startup_stm32f411xe.lst --xref -o .\objects\startup_stm32f411xe.o --depend .\objects\startup_stm32f411xe.d)
-F (.\CMSIS\src\system_stm32f4xx.c)(0x5FAAF3F6)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\ROBORACE_MCU -I .\CMSIS\inc -I .\Code\inc-IC:\Users\vladu\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I"C:\Program Files\Keil\ARM\CMSIS\Include"-D__UVISION_VERSION="532" -DSTM32F411xE-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
-I (.\CMSIS\inc\stm32f4xx.h)(0x5F9B1C69)
-I (.\CMSIS\inc\core_cm4.h)(0x581CC64D)
-I (C:\Program Files\Keil\ARM\ARMCC\include\stdint.h)(0x5F63CDCC)
-I (.\CMSIS\inc\core_cmInstr.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmFunc.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmSimd.h)(0x581CC64D)
-I (.\CMSIS\inc\system_stm32f4xx.h)(0x582097AB)
-F (.\Code\src\main.c)(0x61D46C52)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\ROBORACE_MCU -I .\CMSIS\inc -I .\Code\inc-IC:\Users\vladu\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I"C:\Program Files\Keil\ARM\CMSIS\Include"-D__UVISION_VERSION="532" -DSTM32F411xE-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (.\Code\inc\main.h)(0x61D4A4BC)
-I (.\CMSIS\inc\stm32f4xx.h)(0x5F9B1C69)
-I (.\CMSIS\inc\core_cm4.h)(0x581CC64D)
-I (C:\Program Files\Keil\ARM\ARMCC\include\stdint.h)(0x5F63CDCC)
-I (.\CMSIS\inc\core_cmInstr.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmFunc.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmSimd.h)(0x581CC64D)
-I (.\CMSIS\inc\system_stm32f4xx.h)(0x582097AB)
-I (C:\Program Files\Keil\ARM\ARMCC\include\stdbool.h)(0x5F63CDCC)
-I (.\Code\inc\InitRCC.h)(0x60F84B27)
-I (.\Code\inc\InitSWD.h)(0x60F84B27)
-I (.\Code\inc\InitGPIO.h)(0x60F84B27)
-I (.\Code\inc\InitUART.h)(0x60F84B27)
-I (.\Code\inc\InitADC.h)(0x60F84B27)
-F (.\Code\src\InitRCC.c)(0x60F84B27)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\ROBORACE_MCU -I .\CMSIS\inc -I .\Code\inc-IC:\Users\vladu\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I"C:\Program Files\Keil\ARM\CMSIS\Include"-D__UVISION_VERSION="532" -DSTM32F411xE-o .\objects\initrcc.o --omf_browse .\objects\initrcc.crf --depend .\objects\initrcc.d)
-I (.\Code\inc\InitRCC.h)(0x60F84B27)
-I (.\CMSIS\inc\stm32f4xx.h)(0x5F9B1C69)
-I (.\CMSIS\inc\core_cm4.h)(0x581CC64D)
-I (C:\Program Files\Keil\ARM\ARMCC\include\stdint.h)(0x5F63CDCC)
-I (.\CMSIS\inc\core_cmInstr.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmFunc.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmSimd.h)(0x581CC64D)
-I (.\CMSIS\inc\system_stm32f4xx.h)(0x582097AB)
-F (.\Code\src\InitSWD.c)(0x60F84B27)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\ROBORACE_MCU -I .\CMSIS\inc -I .\Code\inc-IC:\Users\vladu\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I"C:\Program Files\Keil\ARM\CMSIS\Include"-D__UVISION_VERSION="532" -DSTM32F411xE-o .\objects\initswd.o --omf_browse .\objects\initswd.crf --depend .\objects\initswd.d)
-I (.\Code\inc\InitSWD.h)(0x60F84B27)
-I (.\CMSIS\inc\stm32f4xx.h)(0x5F9B1C69)
-I (.\CMSIS\inc\core_cm4.h)(0x581CC64D)
-I (C:\Program Files\Keil\ARM\ARMCC\include\stdint.h)(0x5F63CDCC)
-I (.\CMSIS\inc\core_cmInstr.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmFunc.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmSimd.h)(0x581CC64D)
-I (.\CMSIS\inc\system_stm32f4xx.h)(0x582097AB)
-F (.\Code\src\InitADC.c)(0x60F84B27)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\ROBORACE_MCU -I .\CMSIS\inc -I .\Code\inc-IC:\Users\vladu\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I"C:\Program Files\Keil\ARM\CMSIS\Include"-D__UVISION_VERSION="532" -DSTM32F411xE-o .\objects\initadc.o --omf_browse .\objects\initadc.crf --depend .\objects\initadc.d)
-I (.\Code\inc\InitADC.h)(0x60F84B27)
-I (.\CMSIS\inc\stm32f4xx.h)(0x5F9B1C69)
-I (.\CMSIS\inc\core_cm4.h)(0x581CC64D)
-I (C:\Program Files\Keil\ARM\ARMCC\include\stdint.h)(0x5F63CDCC)
-I (.\CMSIS\inc\core_cmInstr.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmFunc.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmSimd.h)(0x581CC64D)
-I (.\CMSIS\inc\system_stm32f4xx.h)(0x582097AB)
-F (.\Code\src\InitGPIO.c)(0x60F84B27)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\ROBORACE_MCU -I .\CMSIS\inc -I .\Code\inc-IC:\Users\vladu\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I"C:\Program Files\Keil\ARM\CMSIS\Include"-D__UVISION_VERSION="532" -DSTM32F411xE-o .\objects\initgpio.o --omf_browse .\objects\initgpio.crf --depend .\objects\initgpio.d)
-I (.\Code\inc\InitGPIO.h)(0x60F84B27)
-I (.\CMSIS\inc\stm32f4xx.h)(0x5F9B1C69)
-I (.\CMSIS\inc\core_cm4.h)(0x581CC64D)
-I (C:\Program Files\Keil\ARM\ARMCC\include\stdint.h)(0x5F63CDCC)
-I (.\CMSIS\inc\core_cmInstr.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmFunc.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmSimd.h)(0x581CC64D)
-I (.\CMSIS\inc\system_stm32f4xx.h)(0x582097AB)
-F (.\Code\src\InitUART.c)(0x60F84B27)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\ROBORACE_MCU -I .\CMSIS\inc -I .\Code\inc-IC:\Users\vladu\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I"C:\Program Files\Keil\ARM\CMSIS\Include"-D__UVISION_VERSION="532" -DSTM32F411xE-o .\objects\inituart.o --omf_browse .\objects\inituart.crf --depend .\objects\inituart.d)
-I (.\Code\inc\InitUART.h)(0x60F84B27)
-I (.\CMSIS\inc\stm32f4xx.h)(0x5F9B1C69)
-I (.\CMSIS\inc\core_cm4.h)(0x581CC64D)
-I (C:\Program Files\Keil\ARM\ARMCC\include\stdint.h)(0x5F63CDCC)
-I (.\CMSIS\inc\core_cmInstr.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmFunc.h)(0x581CC64D)
-I (.\CMSIS\inc\core_cmSimd.h)(0x581CC64D)
-I (.\CMSIS\inc\system_stm32f4xx.h)(0x582097AB)
