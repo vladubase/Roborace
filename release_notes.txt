@@ -1,5 +1,29 @@
 # Change Log
 
-[0.1-alpha]
+[0.4-alpha]     16-May-2022
+  - Change 3D models after full-testing:
+      - lifted the Sensor Tower higher as the beam intersected with the wheel
+      - Added holes in Robot Base for fasteners
+  - Added the ability to write MCU settings via Bluetooth (save to EEPROM).
+  - Calculation of battery voltage via ADC.
+  - Changed ESC to bidirectional.
+  - Added processing input from Bluetooth on the way (like software Reset, ask laser status, etc.).
+
+
+[0.3-alpha]
+  - Mold wheels.
+  - 3D-print Robot's Base. Reprint fixed components.
+  - Calculation the duration of the MAIN function and if necessary put delays.
+
+
+[0.2-alpha]
+  - 3D-print and assembly of a gearmotor. 3D-print and steering assembly.
+  - Module test fixes.
+  - Bluetooth control configured. 
+  - Add 'config.h' file with main parametres.
+  - Add PID-regulator.
+
+
+[0.1-alpha]     02-March-2022
   - Prepare all 3D-printed files and ready to assemly.
   - Prepare firmware for module testing.
