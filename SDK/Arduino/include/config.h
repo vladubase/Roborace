@@ -9,7 +9,7 @@ int16_t		i_type = 0;
 /********************************** Defines ***********************************/
 
 /* GLOBAL */
-#define		RELEASE_AUTO			true						// Use for full-test.
+#define		RELEASE_AUTO			true
 #define		RELEASE_MANUAL			false
 
 #define		DEBUG_MPU6050			false
@@ -22,22 +22,22 @@ int16_t		i_type = 0;
 #define		SEND_DEBUG_INFO_AUTO	false
 
 /* PHYSICS */
-#define		CAR_WEIGHT				((uint16_t)		  1000)			// *grams.
+#define		CAR_WEIGHT				((uint16_t)		  1000)		// *grams.
 #define		MOTOR_KV				((uint16_t)		   930)
-#define		MOTOR_GEAR_RATIO		((uint8_t)		   8/1)			// 8:1.
-#define		WHEEL_DIAMETER			((uint8_t)			66)			// *mm.
-#define		CAR_TURNING_RADIUS		((uint8_t)			75)			// *cm.
-#define		WHEEL_MAX_STEERING_ANGLE ((uint8_t)			20)			// *degrees.
+#define		MOTOR_GEAR_RATIO		((uint8_t)		   8/1)		// 8:1.
+#define		WHEEL_DIAMETER			((uint8_t)			66)		// *mm.
+#define		CAR_TURNING_RADIUS		((uint8_t)			75)		// *cm.
+#define		WHEEL_MAX_STEERING_ANGLE ((uint8_t)			20)		// *degrees.
 
 // PID
 // Setup: P -> PD -> PID
 float		kP					  =	EEPROM.get (18, f_type);	// Proportional	feedback coefficient.	//	default: 0.5
 float		kI					  =	EEPROM.get (22, f_type);	// Integral 	feedback coefficient.	//	default: 0.0
 float		kD					  =	EEPROM.get (26, f_type);	// Differential	feedback coefficient.	// 	default: 0.0
-// #define		kP						((float)			0.5)
-// #define		kI						((float)			0.0)
-// #define		kD						((float)			0.0)
-#define		MAIN_CYCLE_DELAY		((uint32_t)	    	65)		// The main cycle delay (in ms).
+// #define		kP						((float)		   0.6)
+// #define		kI						((float)		   0.2)
+// #define		kD						((float)		   0.0)
+#define		MAIN_CYCLE_DELAY		((uint32_t)	        50)		// The main cycle delay (in ms).
 																// for correct work of D-regulation.
 #define		QTY_OF_ERR				((uint8_t)			10)		// Quantity of errors in memory during last
 																// (QTY_OF_ERR * MAIN_CYCLE_DELAY) ms.
@@ -66,21 +66,21 @@ float		kD					  =	EEPROM.get (26, f_type);	// Differential	feedback coefficient.
 // float		SERVO_SIG_US_LEFT	  = EEPROM.get (30, i_type);	//	default: 1925
 // float		SERVO_SIG_US_0		  = EEPROM.get (32, i_type);	//	default: 1512
 // float		SERVO_SIG_US_RIGHT	  = EEPROM.get (34, i_type);	// 	default: 1100
-#define		SERVO_SIG_US_LEFT		((uint16_t)		  1925)
-#define		SERVO_SIG_US_0			((uint16_t)		  1512)
-#define		SERVO_SIG_US_RIGHT		((uint16_t)		  1100)
+#define		SERVO_SIG_US_LEFT		((uint16_t)		  2050)
+#define		SERVO_SIG_US_0			((uint16_t)		  1450)
+#define		SERVO_SIG_US_RIGHT		((uint16_t)		  850)
 
 /* SENSORS */
 // LASER : VL5301X
 #define		NUM_OF_SENSORS			((uint8_t)			 5)
-#define		LASER_ID_LEFT			((uint8_t)			 0)		// ID on I2C Mux.
-#define		LASER_ID_LEFT45			((uint8_t)			 1)
-#define		LASER_ID_0				((uint8_t)			 2)
+#define		LASER_ID_LEFT			((uint8_t)			 7)		// ID on I2C Mux.
+#define		LASER_ID_LEFT45			((uint8_t)			 5)
+#define		LASER_ID_0				((uint8_t)			 4)
 #define		LASER_ID_RIGHT45		((uint8_t)			 3)
-#define		LASER_ID_RIGHT			((uint8_t)			 4)
+#define		LASER_ID_RIGHT			((uint8_t)			 2)
 
 // MPU6050 : GYRO, ACCELEROMETER, COMPASS
-#define		MPU6050_ID				((uint8_t)			 7)
+#define		MPU6050_ID				((uint8_t)			 6)
 
 
 /* ADC */

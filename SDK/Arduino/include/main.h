@@ -72,52 +72,49 @@ void I2CMuxChSelect (uint8_t i) {
 }
 
 void InitLasers (void) {
-	Wire.begin ();
-	Wire.setClock (I2C_SPEED);
-
-	I2CMuxChSelect (0);	laser_left.setTimeout 	(I2C_TIMEOUT);
-	I2CMuxChSelect (1);	laser_left45.setTimeout (I2C_TIMEOUT);
-	I2CMuxChSelect (2);	laser_0.setTimeout 		(I2C_TIMEOUT);
-	I2CMuxChSelect (3);	laser_right45.setTimeout(I2C_TIMEOUT);
-	I2CMuxChSelect (4);	laser_right.setTimeout 	(I2C_TIMEOUT);
+	I2CMuxChSelect (LASER_ID_LEFT);		laser_left.setTimeout 	(I2C_TIMEOUT);
+	I2CMuxChSelect (LASER_ID_LEFT45);	laser_left45.setTimeout (I2C_TIMEOUT);
+	I2CMuxChSelect (LASER_ID_0);		laser_0.setTimeout 		(I2C_TIMEOUT);
+	I2CMuxChSelect (LASER_ID_RIGHT);	laser_right45.setTimeout(I2C_TIMEOUT);
+	I2CMuxChSelect (LASER_ID_RIGHT45);	laser_right.setTimeout 	(I2C_TIMEOUT);
 	
 	// if bit not set - LASER init error.
-	I2CMuxChSelect (0);	if (laser_left.init ())		{ STATUS_LASER |= (1 << 0); }
-	I2CMuxChSelect (1);	if (laser_left45.init ())	{ STATUS_LASER |= (1 << 1); }
-	I2CMuxChSelect (2);	if (laser_0.init ())		{ STATUS_LASER |= (1 << 2); }
-	I2CMuxChSelect (3);	if (laser_right45.init ())	{ STATUS_LASER |= (1 << 3); }
-	I2CMuxChSelect (4);	if (laser_right.init ())	{ STATUS_LASER |= (1 << 4); }
+	I2CMuxChSelect (LASER_ID_LEFT);		if (laser_left.init ())		{ STATUS_LASER |= (1 << 0); }
+	I2CMuxChSelect (LASER_ID_LEFT45);	if (laser_left45.init ())	{ STATUS_LASER |= (1 << 1); }
+	I2CMuxChSelect (LASER_ID_0);		if (laser_0.init ())		{ STATUS_LASER |= (1 << 2); }
+	I2CMuxChSelect (LASER_ID_RIGHT);	if (laser_right45.init ())	{ STATUS_LASER |= (1 << 3); }
+	I2CMuxChSelect (LASER_ID_RIGHT45);	if (laser_right.init ())	{ STATUS_LASER |= (1 << 4); }
 
 	// Distance:	Long, Medium, Short
 	// Period (ms):  50     33     20
-	I2CMuxChSelect (0);	laser_left.setDistanceMode (VL53L1X::Medium);
-	I2CMuxChSelect (0);	laser_left.setMeasurementTimingBudget (33000);
-	I2CMuxChSelect (0);	laser_left.startContinuous (33);
+	I2CMuxChSelect (LASER_ID_LEFT);		laser_left.setDistanceMode (VL53L1X::Medium);
+	I2CMuxChSelect (LASER_ID_LEFT);		laser_left.setMeasurementTimingBudget (33000);
+	I2CMuxChSelect (LASER_ID_LEFT);		laser_left.startContinuous (33);
 	
-	I2CMuxChSelect (1);	laser_left45.setDistanceMode (VL53L1X::Medium);
-	I2CMuxChSelect (1);	laser_left45.setMeasurementTimingBudget (33000);
-	I2CMuxChSelect (1);	laser_left45.startContinuous (33);
+	I2CMuxChSelect (LASER_ID_LEFT45);	laser_left45.setDistanceMode (VL53L1X::Medium);
+	I2CMuxChSelect (LASER_ID_LEFT45);	laser_left45.setMeasurementTimingBudget (33000);
+	I2CMuxChSelect (LASER_ID_LEFT45);	laser_left45.startContinuous (33);
 	
-	I2CMuxChSelect (2);	laser_0.setDistanceMode (VL53L1X::Medium);
-	I2CMuxChSelect (2);	laser_0.setMeasurementTimingBudget (33000);
-	I2CMuxChSelect (2);	laser_0.startContinuous (33);
+	I2CMuxChSelect (LASER_ID_0);		laser_0.setDistanceMode (VL53L1X::Medium);
+	I2CMuxChSelect (LASER_ID_0);		laser_0.setMeasurementTimingBudget (33000);
+	I2CMuxChSelect (LASER_ID_0);		laser_0.startContinuous (33);
 	
-	I2CMuxChSelect (3);	laser_right45.setDistanceMode (VL53L1X::Medium);
-	I2CMuxChSelect (3);	laser_right45.setMeasurementTimingBudget (33000);
-	I2CMuxChSelect (3);	laser_right45.startContinuous (33);
+	I2CMuxChSelect (LASER_ID_RIGHT);	laser_right45.setDistanceMode (VL53L1X::Medium);
+	I2CMuxChSelect (LASER_ID_RIGHT);	laser_right45.setMeasurementTimingBudget (33000);
+	I2CMuxChSelect (LASER_ID_RIGHT);	laser_right45.startContinuous (33);
 	
-	I2CMuxChSelect (4);	laser_right.setDistanceMode (VL53L1X::Medium);
-	I2CMuxChSelect (4);	laser_right.setMeasurementTimingBudget (33000);
-	I2CMuxChSelect (4);	laser_right.startContinuous (33);
+	I2CMuxChSelect (LASER_ID_RIGHT45);	laser_right.setDistanceMode (VL53L1X::Medium);
+	I2CMuxChSelect (LASER_ID_RIGHT45);	laser_right.setMeasurementTimingBudget (33000);
+	I2CMuxChSelect (LASER_ID_RIGHT45);	laser_right.startContinuous (33);
 }
 
 void InitMPU6050 (void) {
-	I2CMuxChSelect (7);	while (!mpu.begin ());
+	I2CMuxChSelect (MPU6050_ID);		while (!mpu.begin ());
 	STATUS_MPU6050 |= (1 << 7);
 	
-	I2CMuxChSelect (7);	mpu.setAccelerometerRange (MPU6050_RANGE_16_G);
-	I2CMuxChSelect (7);	mpu.setGyroRange (MPU6050_RANGE_2000_DEG);
-	I2CMuxChSelect (7);	mpu.setFilterBandwidth (MPU6050_BAND_44_HZ);
+	I2CMuxChSelect (MPU6050_ID);		mpu.setAccelerometerRange (MPU6050_RANGE_16_G);
+	I2CMuxChSelect (MPU6050_ID);		mpu.setGyroRange (MPU6050_RANGE_2000_DEG);
+	I2CMuxChSelect (MPU6050_ID);		mpu.setFilterBandwidth (MPU6050_BAND_44_HZ);
 }
 
 void RobotSetupMenu (void) {
